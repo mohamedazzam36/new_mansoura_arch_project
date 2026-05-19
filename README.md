@@ -5,7 +5,7 @@ A premium, ultra-responsive architectural showcase and interactive landing page 
 ---
 
 ## 🚀 Live Demo
-🔗 [Explore the Live Architectural Showcase](new-mansoura-arch-29.netlify.app)
+🔗 [Explore the Live Architectural Showcase](https://new-mansoura-arch-29.netlify.app/)
 
 ---
 

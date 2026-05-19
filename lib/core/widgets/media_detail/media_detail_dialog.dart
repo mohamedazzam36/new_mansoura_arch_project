@@ -53,23 +53,26 @@ class MediaDetailDialog extends StatelessWidget {
   final String designer;
   final String? title;
 
-  Widget _buildImageSpacer(double dialogWidth) {
+  Widget _buildImageSpacer(double dialogWidth, double maxHeight) {
     return Opacity(
       opacity: 0,
-      child: Image.asset(
-        imagePath,
-        width: dialogWidth,
-        fit: BoxFit.fitWidth,
-        errorBuilder: (_, _, _) => SizedBox(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxHeight: maxHeight),
+        child: Image.asset(
+          imagePath,
           width: dialogWidth,
-          height: dialogWidth / 2.0,
-          child: const ColoredBox(
-            color: AppColors.brownMedium,
-            child: Center(
-              child: Icon(
-                Icons.image_outlined,
-                size: 64,
-                color: AppColors.creamLight,
+          fit: BoxFit.contain,
+          errorBuilder: (_, _, _) => SizedBox(
+            width: dialogWidth,
+            height: dialogWidth / 2.0,
+            child: const ColoredBox(
+              color: AppColors.brownMedium,
+              child: Center(
+                child: Icon(
+                  Icons.image_outlined,
+                  size: 64,
+                  color: AppColors.creamLight,
+                ),
               ),
             ),
           ),
@@ -84,8 +87,11 @@ class MediaDetailDialog extends StatelessWidget {
     final isDesktop = ResponsiveHelper.isDesktop(context);
 
     final dialogWidth = isDesktop
-        ? (size.width * 0.80).clamp(500.0, 860.0)
+        ? (size.width * 0.80).clamp(500.0, 760.0)
         : size.width * 0.95;
+
+    // Limit image height to 65% of screen height so it never exceeds screen bounds
+    final maxImageHeight = size.height * 0.65;
 
     return Center(
       child: Material(
@@ -114,7 +120,7 @@ class MediaDetailDialog extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     // Invisible spacer — reserves the exact same space as the image
-                    _buildImageSpacer(dialogWidth),
+                    _buildImageSpacer(dialogWidth, maxImageHeight),
 
                     // ── Description + designer ──────────────────────────
                     Flexible(
@@ -136,6 +142,7 @@ class MediaDetailDialog extends StatelessWidget {
                 child: MediaDetailImage(
                   imagePath: imagePath,
                   width: dialogWidth,
+                  maxHeight: maxImageHeight,
                 ),
               ),
 

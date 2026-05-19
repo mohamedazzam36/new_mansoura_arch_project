@@ -6,10 +6,12 @@ class MediaDetailImage extends StatefulWidget {
     super.key,
     required this.imagePath,
     required this.width,
+    required this.maxHeight,
   });
 
   final String imagePath;
   final double width;
+  final double maxHeight;
 
   @override
   State<MediaDetailImage> createState() => _MediaDetailImageState();
@@ -29,20 +31,23 @@ class _MediaDetailImageState extends State<MediaDetailImage> {
   }
 
   Widget _buildBaseImage() {
-    return Image.asset(
-      widget.imagePath,
-      width: widget.width,
-      fit: BoxFit.fitWidth,
-      errorBuilder: (_, _, _) => SizedBox(
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxHeight: widget.maxHeight),
+      child: Image.asset(
+        widget.imagePath,
         width: widget.width,
-        height: widget.width / 2.0,
-        child: const ColoredBox(
-          color: AppColors.brownMedium,
-          child: Center(
-            child: Icon(
-              Icons.image_outlined,
-              size: 64,
-              color: AppColors.creamLight,
+        fit: BoxFit.contain,
+        errorBuilder: (_, _, _) => SizedBox(
+          width: widget.width,
+          height: widget.width / 2.0,
+          child: const ColoredBox(
+            color: AppColors.brownMedium,
+            child: Center(
+              child: Icon(
+                Icons.image_outlined,
+                size: 64,
+                color: AppColors.creamLight,
+              ),
             ),
           ),
         ),

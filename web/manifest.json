@@ -1,0 +1,35 @@
+{
+    "name": "New Mansoura — Development Project",
+    "short_name": "New Mansoura",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#1E130A",
+    "theme_color": "#1E130A",
+    "description": "New Mansoura Development Project — A university architecture showcase.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

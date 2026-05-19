@@ -1,6 +1,6 @@
 # 🏛️ New Mansoura Development Project 
 
-A premium, ultra-responsive architectural showcase and interactive landing page built with **Flutter**. This project functions as a high-performance Single Page Application (SPA) designed to present architectural renders, 360° panoramas, and promotional media with a fully custom, high-end design system.
+A premium, ultra-responsive architectural showcase and interactive landing page built with **Flutter**. This project functions as a high-performance Page designed to present architectural renders, 360° panoramas, and promotional media with a fully custom, high-end design system.
 
 ---
 
@@ -52,7 +52,7 @@ To set up the environment locally or compile the web distribution with maximum n
 
 ```bash
 # 1. Clone the architectural repository
-git clone [https://github.com/mohamedazzam36/new_mansoura_arch_project](https://github.com/mohamedazzam36/new_mansoura_arch_project)
+git clone https://github.com/mohamedazzam36/new_mansoura_arch_project
 
 # 2. Fetch dependencies
 flutter pub get
